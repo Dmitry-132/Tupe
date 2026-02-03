@@ -17,13 +17,14 @@ public class Main {
         System.out.println("Значение переменной sugar с типом double равно " + sugar);
 
         System.out.println("№2");
-        float a = 27.12F;
+        double a = 27.12;
         long b = 987678965549L;
         float c = 2.786F;
         short d = 569;
         short i = -159;
         short e = 27897;
         byte g = 67;
+        System.out.println("a = " + a + "\n" + "b = " + b + "\n" + "c = " + c + "\n" + "d = " + d + "\n" + "i = " + i + "\n" + "e = " + e + "\n" + "g = " + g + "\n");
 
         System.out.println("№3");
         byte classA = 23;
@@ -35,8 +36,8 @@ public class Main {
 
         System.out.println("№4");
         byte bottlesInMinute = 16/2;
-        int bottlesIn5Minutes = 5 * bottlesInMinute;
-        System.out.println("За 5 минут машина произвела " + bottlesIn5Minutes + "штук бутылок");
+        int bottlesIn20Minutes = 20 * bottlesInMinute;
+        System.out.println("За 20 минут машина произвела " + bottlesIn20Minutes + "штук бутылок");
         int bottlesInDay = bottlesInMinute * (24 * 60);
         System.out.println("За день машина произвела " + bottlesInDay + "штук бутылок");
         int bottlesIn3Days = bottlesInDay * 3;
@@ -63,11 +64,11 @@ public class Main {
         System.out.println("Итоговый вес завтрака по данному рецепту равен " + massWeight + " грамм или " + massWeightInKg + " килограмм");
 
         System.out.println("№7");
-        short NeedDropMass = 7000;
+        short needDropMass = 7000;
         short canDropMass1 = 250;
         short canDropMass2 = 500;
-        short needDaysForDrop1 = (short) (NeedDropMass / canDropMass1);
-        short needDaysForDrop2 = (short) (NeedDropMass / canDropMass2);
+        short needDaysForDrop1 = (short) (needDropMass / canDropMass1);
+        short needDaysForDrop2 = (short) (needDropMass / canDropMass2);
         System.out.println("Если спортсмен будет тратить по " + canDropMass1 + " грамм в день, ему понадобится " + needDaysForDrop1 + " дней");
         System.out.println("Если спортсмен будет тратить по " + canDropMass2 + " грамм в день, ему понадобится " + needDaysForDrop2 + " дней");
         byte needDaysOnAverage = (byte) ((needDaysForDrop1 + needDaysForDrop2) / 2);
