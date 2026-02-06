@@ -5,7 +5,7 @@ public class Main {
 
         System.out.println("№1; #2");
         byte clientOS = 0;
-        short clientDeviceYear = 2007;
+        short clientDeviceYear = 2025;
         if (clientDeviceYear < 2015) {
             switch (clientOS) {
                 case 0:
@@ -33,7 +33,10 @@ public class Main {
 
         System.out.println("№3");
         int year =2100;
-       if (year % 4 == 0 && year % 100 != 0 || year % 100 == 0 && year % 400 == 0) {
+        if (year < 1584) {
+            System.out.println(year + " год не является високосным, т.к. в те времена данное понятие ещё не было открыто");
+        }
+       else if (year % 4 == 0 && year % 100 != 0 || year % 100 == 0 && year % 400 == 0) {
            System.out.println(year + " год является високосным");
        }
        else  {
@@ -61,28 +64,20 @@ public class Main {
         System.out.println("№5");
        byte monthNumber = 12;
         switch (monthNumber) {
-            case 1: case 2: case 3:
+            case 3: case 4: case 5:
                 System.out.println("Весна");
                 break;
-            case 4: case 5: case 6:
+            case 6: case 7: case 8:
                 System.out.println("Лето");
                 break;
-            case 7: case 8: case 9:
+            case 9: case 10: case 11:
                 System.out.println("Осень");
                 break;
-            case 10: case 11: case 12:
+            case 12: case 1: case 2:
                 System.out.println("Зима");
                 break;
             default:
                 System.out.println("Такого месяца не существует");
         }
-
-
-
-
-
-
-
-
     }
 }
