@@ -57,19 +57,26 @@ public class Main {
         }
 
         System.out.println("№6");
+        byte people = 30;
         byte totalPlaces = 102;
         byte seatingPlaces = 60;
         byte standingPlaces = (byte) (totalPlaces - seatingPlaces);
-        byte nowSeatingPlaces = 60;
-        byte nowStandingPlaces = 14;
-        byte nowTotalPlaces = (byte) (nowSeatingPlaces + nowStandingPlaces);
-        byte freeSeatingPlaces = (byte) (seatingPlaces - nowSeatingPlaces);
-        byte freeStandingPlaces = (byte) (standingPlaces - nowStandingPlaces);
-        if (nowTotalPlaces >= totalPlaces) {
+        byte nowSeatingPlaces = seatingPlaces;
+        byte nowStandingPlaces = standingPlaces;
+        if (people >= 60) {
+            nowSeatingPlaces = 0;
+        } else { nowSeatingPlaces = people;}
+        if (people > seatingPlaces) {
+            nowStandingPlaces = (byte) (standingPlaces - (people - seatingPlaces));
+        } else { nowStandingPlaces = standingPlaces; }
+        if (people >= totalPlaces) {
             System.out.println("Мест нет");
         }
-        else if (nowSeatingPlaces < seatingPlaces || nowStandingPlaces < standingPlaces) {
-            System.out.println("Свободно " + freeSeatingPlaces + " сидячих мест и " + freeStandingPlaces + " стоячих мест");
+        else if (people >= 0){
+            System.out.println("Свободно " + nowSeatingPlaces + " сидячих мест и " + nowStandingPlaces + " стоячих мест");
+        }
+        else {
+            System.out.println("Программа неисправна");
         }
 
         System.out.println("№7");
