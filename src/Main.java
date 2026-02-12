@@ -9,7 +9,7 @@ public class Main {
         for (int i = 1, m = 1; i <= 31 && m < 12; i++) {
             if (i % firstFriday == 0) {
                 System.out.println("Сегодня пятница," + i + "е число. Необходимо подготовить отчет");
-                firstFriday = +firstFriday + 7;
+                firstFriday = firstFriday + 7;
             }
         }
 
@@ -29,7 +29,7 @@ public class Main {
             }
             while (passedWay < way);
         }
-        if (version == 2) {
+        if (version == 1) {
             int way = 42195;
             int doWay = 500;
             int passedWay = 0;
@@ -57,7 +57,7 @@ public class Main {
             System.out.println(many + " рублей хватит на " + (day + freeDay) + " дней, из них " + freeDay + " дней бесплатны. На счету останется " + spentMany + " рублей");
         }
         if (version == 2) {
-            int many = 50001;
+            int many = 50050;
             int price = 100;
             int spentMany = many;
             int day = 0;
@@ -95,25 +95,22 @@ public class Main {
         System.out.println("№5");
         byte charge = 20;
         short minute = 0;
-        short totalTime = 0;
         byte overheats = 0;
-        while (charge < 100) {
-            System.out.println(minute + " minute | заряд " + charge + " | Общее время " + totalTime  );
-            if (minute % 10 == 0 && minute >= 10) {
+        while (charge < 100 && overheats <= 3) {
+//            System.out.println(minute + " minute | заряд " + charge);
+            minute++;
+            if (minute % 10 == 0) {
                 overheats++;
-                minute = 0;
-                if (overheats > 3) {
+                charge = (byte) (charge + 2);
+                if (overheats >= 3) {
                     System.out.println("Зарядка прекращена. Текущий заряд: " + charge + " %");
                     break;
                 }
-                System.out.println("перегрев");
-                totalTime = (short) (totalTime + 2);
+//                System.out.println("перегрев");
                 continue;
             }
-            minute++;
-            totalTime++;
             charge = (byte) (charge + 2);
         }
-        System.out.println("Зарядка заняла " + totalTime + " минут");
+        System.out.println("Зарядка заняла " + (minute + overheats * 2) + " минут");
     }
 }
