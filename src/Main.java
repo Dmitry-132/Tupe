@@ -93,21 +93,18 @@ public class Main {
         }
 
         System.out.println("№5");
-        byte charge = 20;
+        byte charge = 0;
         short minute = 0;
         byte overheats = 0;
         while (charge < 100 && overheats <= 3) {
-            System.out.println(minute + " minute | заряд " + charge);
             minute++;
-            if ((minute - overheats) % 10 == 0) {
+            if (minute % 10 == 0) {
                 overheats++;
-                minute++;
                 if (overheats >= 3) {
                     System.out.println("Зарядка прекращена. Текущий заряд: " + charge + " %");
-                    minute = (short) (minute - 2);
                     break;
                 }
-                System.out.println("перегрев");
+                minute = (short) (minute + 2);
                 continue;
             }
             charge = (byte) (charge + 2);
