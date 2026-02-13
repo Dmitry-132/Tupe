@@ -93,7 +93,7 @@ public class Main {
         }
 
         System.out.println("№5");
-        byte charge = 0;
+        byte charge = 20;
         short minute = 0;
         byte overheats = 0;
         while (charge < 100 && overheats <= 3) {
