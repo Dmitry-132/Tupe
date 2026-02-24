@@ -4,7 +4,7 @@ public class Main {
     private static double operSystem;
 
     // #1
-public static int calculateLeapYear(int leapYear){
+public static int calculatingLeapYear(int leapYear){
     if (leapYear < 1584) {
         System.out.println(leapYear + " год не является високосным, т.к. в те времена данное понятие ещё не было открыто");
     } else if (leapYear % 4 == 0 && leapYear % 100 != 0 || leapYear % 400 == 0) {
@@ -19,7 +19,7 @@ public static int definingVersion(int operSystem,int deviceYear ){
     if (deviceYear < 2015 && operSystem == 0) {
         System.out.println("Установите облегченную версию приложения для iOS по ссылке");
     } else if (deviceYear < 2015 && operSystem == 1) {
-        System.out.println("Установите версию приложения для Android по ссылке");
+        System.out.println("Установите облегченную версию приложения для Android по ссылке");
     } else if (deviceYear >= 2015 && operSystem == 0) {
         System.out.println("Установите версию приложения для iOS по ссылке");
     } else if (deviceYear >= 2015 && operSystem == 1) {
@@ -50,11 +50,11 @@ public static int determiningDeliveryDistance(int distance) {
 
         System.out.println("#1");
         int year = 2000;
-        calculateLeapYear(year);
+        calculatingLeapYear(year);
 
         System.out.println("#2");
-        byte clientOS = 0;
-        short clientDeviceYear = 2025;
+        byte clientOS = 1;
+        short clientDeviceYear = 2005;
         definingVersion(clientOS,clientDeviceYear);
 
         System.out.println("#3");
