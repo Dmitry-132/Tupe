@@ -1,7 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    private static double operSystem;
     // #1
     public static int calculatingLeapYear(int leapYear) {
         if (leapYear < 1584) {
@@ -30,7 +29,9 @@ public class Main {
     }
     //#3
     public static int determiningDeliveryDistance(int distance) {
-        if (distance <= 20) {
+        if (distance <= 0) {
+            System.out.println("Возможно, твой GPS-трекер подключен через инверсионный квантово-пространственный преобразователь,ну или в прогдамме опять что-то не так. И вообще, нафиг тебе это надо?");
+        } else if (distance <= 20) {
             byte timesDelivery = 1;
             System.out.println("Потребуется дней " + timesDelivery);
         } else if (distance <= 60) {
