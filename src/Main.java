@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         Product dog = new Product(1, "dog", 200, "pet");
-        Product dogs = new Product(1, "dog", 200, "pet");
+        Product dogs = new Product(1, "dogs", 200, "pet");
         Product cat = new Product(2, "cat", 100, "pet");
         Product mouse = new Product(3, "mouse", 50, "pet");
 

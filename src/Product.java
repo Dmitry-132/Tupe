@@ -37,7 +37,7 @@ public class Product {
             return false;
         }
         Product product = (Product) o;
-        return id == product.id && Objects.equals(name,product.name);
+        return id == product.id && Objects.equals(category,product.category);
     }
 }
 
