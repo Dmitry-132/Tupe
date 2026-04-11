@@ -1,5 +1,4 @@
 public class Employee {
-
     private static int idApp;
     private int id;
     private String name;
@@ -9,7 +8,6 @@ public class Employee {
     private int department;
 
     public Employee(String name, String lastName, String patronymic, int salary, int department) {
-
         this.id = idApp++;
         this.name = name;
         this.lastName = lastName;
@@ -27,8 +25,8 @@ public class Employee {
     }
 
     public String toString() {
-//        return "id = " + id + ", name = " + name + ", lastName = " + lastName + ", patronymic = " + patronymic + ", salary = " + salary + ", dapartament = " + department;
-        return String.format("id = %d, name = %s, lastName = %s, patronymic = %s, salary = %d, dapartament = %d", id, name, lastName, patronymic, salary, department);
+        return String.format("id = %d, name = %s, lastName = %s, patronymic = %s, salary = %d, dapartament = %d",
+                id, name, lastName, patronymic, salary, department);
     }
 
     public void printShortInfo() {
@@ -74,6 +72,4 @@ public class Employee {
             System.out.println("некорректный идентификатор отдела");
         }
     }
-
-
 }

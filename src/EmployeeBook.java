@@ -1,6 +1,6 @@
 public class EmployeeBook {
     Employee[] employeeBook = new Employee[10];
-    public static String PROPORTIONAL = "PROPORTIONAL"; // для процентов на 40
+    public static String PROPORTIONAL = "PROPORTIONAL";
     public static String PROGRESSIVE = "PROGRESSIVE";
 
     public boolean addEmployee(Employee employee) {
@@ -20,25 +20,22 @@ public class EmployeeBook {
                 System.out.println(o_o.toString());
             }
         }
-//        System.out.println();
     }
 
     public void averageTotalSalary() {
         double totalSalary = 0;
         byte totalEmployees = 0;
-        for (Employee o : employeeBook) {
-            if (o != null) {
-                totalSalary += o.getSalary();
+        for (Employee testEmployee : employeeBook) {
+            if (testEmployee != null) {
+                totalSalary += testEmployee.getSalary();
                 totalEmployees++;
             }
         }
         System.out.println();
         double averaid = totalSalary / totalEmployees;
         System.out.printf("средняя зарплата %d сотрудников составляет %.2f руб.%n%n", totalEmployees, averaid);
-
     }
 
-    // костыль для totalTax, позже решу, как его в него впихнуть, чтоб результат остался читабельным, а пока пусть здесь валяется
     private double calculateTax(double salary, String taxType) {
         switch (taxType) {
             case "PROGRESSIVE":
@@ -59,14 +56,14 @@ public class EmployeeBook {
 
     public void totalTax(String taxType) {
         double totalTax = 0;
-//        byte totalEmployees = 0;
         System.out.println("Расчет налога с з.п. сотрудников по методу " + taxType);
-        for (Employee o : employeeBook) {
-            if (o != null) {
-                double salary = o.getSalary();
+        for (Employee testEmployee : employeeBook) {
+            if (testEmployee != null) {
+                double salary = testEmployee.getSalary();
                 double tax = calculateTax(salary, taxType);
                 totalTax += tax;
-                System.out.printf("Сотрудник: %s %s | Зарплата: %.2f | Налог: %.2f%n", o.getLastName(), o.getName(), salary, tax);
+                System.out.printf("Сотрудник: %s %s | Зарплата: %.2f | Налог: %.2f%n",
+                        testEmployee.getLastName(), testEmployee.getName(), salary, tax);
             }
         }
         System.out.printf("Общая сумма налогов: %.2f руб.%n%n", totalTax);
@@ -74,31 +71,31 @@ public class EmployeeBook {
 
     public void salaryIndexByDepartment(int department, double index) {
         System.out.println("Перерасчёт зарплат " + department + " отдела по индексу " + index);
-        for (Employee o_o : employeeBook) {
-            if (o_o == null) {
+        for (Employee testEmployeeo : employeeBook) {
+            if (testEmployeeo == null) {
                 continue;
             }
-            if (o_o.getDepartment() == department) {
-                double newIndex = o_o.getSalary() * (1 + index / 100);
-                o_o.setSalary((int) newIndex);
-                o_o.printShortInfo();
+            if (testEmployeeo.getDepartment() == department) {
+                double newIndex = testEmployeeo.getSalary() * (1 + index / 100);
+                testEmployeeo.setSalary((int) newIndex);
+                testEmployeeo.printShortInfo();
             }
         }
         System.out.println("");
     }
 
     public void increasedSalaryByDepartment(int departament, int minSalary) {
-        System.out.println("Поиск сотрудника зи " + departament + " отдела с з.п. выше " + minSalary);
-        byte x_x = 0;
-        for (Employee o_o : employeeBook) {
-            if (o_o == null) {
+        System.out.println("Поиск сотрудника из " + departament + " отдела с з.п. выше " + minSalary);
+        for (Employee testEmployee : employeeBook) {
+            byte employeesNumber = 0;
+            if (testEmployee == null) {
                 System.out.println("По указанной з.п. сотрудников нет");
                 break;
             }
-            x_x++;
-            if (o_o.getDepartment() == departament && o_o.getSalary() > minSalary) {
-                System.out.print("Сотрудник под  номером " + x_x + ": ");
-                o_o.printShortInfo();
+            employeesNumber++;
+            if (testEmployee.getDepartment() == departament && testEmployee.getSalary() > minSalary) {
+                System.out.print("Сотрудник под  номером " + employeesNumber + ": ");
+                testEmployee.printShortInfo();
                 break;
             }
         }
@@ -126,10 +123,10 @@ public class EmployeeBook {
         if (employee == null) {
             return false;
         }
-        for (Employee ooo : employeeBook) {
-            if (ooo != null && ooo.getSalary() == employee.getSalary() && ooo.getId() != employee.getId()) {
-                System.out.print("id " + ooo.getId() + ": ");
-                ooo.printShortInfo();
+        for (Employee testEmployees : employeeBook) {
+            if (testEmployees != null && testEmployees.getSalary() == employee.getSalary() && testEmployees.getId() != employee.getId()) {
+                System.out.print("id " + testEmployees.getId() + ": ");
+                testEmployees.printShortInfo();
                 System.out.println();
                 return true;
             }
